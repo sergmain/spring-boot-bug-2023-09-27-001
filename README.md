@@ -1,1 +1,8 @@
-# spring-boot-bug-2023-09-27-001
+
+how to run
+
+- create temp directory i.e. /temp-dir
+- run com.example.sb35718.SimpleApplication with following java options:
+
+
+-ea -Xms1g -Xmx1g -Dfile.encoding=UTF-8 -Dspring.profiles.active=dispatcher,h2 -Dmh.home=/temp-dir 
