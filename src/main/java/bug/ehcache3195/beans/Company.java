@@ -27,4 +27,13 @@ public class Company implements Serializable {
     public Company(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+               "id=" + id +
+               ", version=" + version +
+               ", name='" + name + '\'' +
+               '}';
+    }
 }

@@ -161,7 +161,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>ai.metaheuristic.mhbp.MhbpApplication</mainClass>
+                    <mainClass>bug.ehcache3195.SimpleApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
