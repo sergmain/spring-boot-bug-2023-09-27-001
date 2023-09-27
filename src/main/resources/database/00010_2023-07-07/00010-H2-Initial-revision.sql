@@ -4,3 +4,8 @@ CREATE TABLE mh_company
     VERSION     NUMERIC(5, 0) NOT NULL,
     NAME        VARCHAR(100)   NOT NULL
 );
+
+insert into mh_company
+(version, name)
+VALUES
+(0, 'Company #1');

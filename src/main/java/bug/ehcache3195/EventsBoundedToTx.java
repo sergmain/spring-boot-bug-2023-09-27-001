@@ -6,9 +6,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
+
+import static javax.transaction.Status.STATUS_COMMITTED;
 
 /**
  * @author Sergio Lissner
@@ -23,10 +27,10 @@ public class EventsBoundedToTx {
     private final ApplicationEventPublisher eventPublisher;
 
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void handleNewCompanyTxEvent(NewCompanyTxEvent event) {
-        if (TransactionSynchronizationManager.isActualTransactionActive()) {
-            throw new IllegalStateException("Tx exists");
-        }
+        Utils.checkTxNotExists();
+
         log.info("call EventsBoundedToTx.handleNewCompanyTxEvent(name: {}, tx exists: {})", event.name, TransactionSynchronizationManager.isActualTransactionActive());
         eventPublisher.publishEvent(event.to());
     }

@@ -15,7 +15,7 @@
  */
 package bug.ehcache3195;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

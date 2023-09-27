@@ -1,6 +1,6 @@
 package bug.ehcache3195;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 

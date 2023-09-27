@@ -19,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor(onConstructor_={@Autowired})
 public class CompanyTxService {
 
-    private final EventsBoundedToTx eventsBoundedToTx;
     private final CompanyRepository companyRepository;
     private final ApplicationEventPublisher eventPublisher;
 

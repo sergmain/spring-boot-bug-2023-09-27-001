@@ -1,6 +1,6 @@
 package bug.ehcache3195.beans;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +8,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "MH_COMPANY")
+@Table(name = "mh_company")
 @Data
 @NoArgsConstructor
 public class Company implements Serializable {
@@ -26,5 +26,14 @@ public class Company implements Serializable {
 
     public Company(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+               "id=" + id +
+               ", version=" + version +
+               ", name='" + name + '\'' +
+               '}';
     }
 }
